@@ -29,7 +29,7 @@ export function compute(a) {
   const raw = keys.filter(k => scores[k] >= rawMax - 1);
   const ready = keys.filter(k => !blocked[k].length);
   const readyMax = Math.max(0, ...ready.map(k => scores[k]));
-  const practical = readyMax > 0 ? ready.filter(k => scores[k] >= readyMax - 1) : [];
+  const practical = readyMax > 0 ? ready.filter(k => scores[k] > 0 && scores[k] >= readyMax - 1) : [];
   return { missing: [], scores, substantive, raw, practical, blocked, preliminary, globalReasons,
     exploration: substantive < 4, discovery: globalReasons.length > 0,
     privateFirst: globalReasons.length > 0 || a.proof !== 'artifact' || a.skills === 'learning' || a.access !== 'threeplus',
