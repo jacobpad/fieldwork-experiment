@@ -1,6 +1,6 @@
 import { DATA } from './data.js';
 export const keys = Object.keys(DATA.routes);
-export const VERSION = 'Fieldwork 1.1 · unvalidated heuristic';
+export const VERSION = 'One Small Venture 1.1 · unvalidated heuristic';
 export function compute(a) {
   const missing = DATA.questions.filter(q => !q.options.some(o => o.id === a[q.id])).map(q => q.id);
   if (missing.length) return { missing };
